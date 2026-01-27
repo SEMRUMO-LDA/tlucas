@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
 
         <div className="pt-12 border-t border-white/5">
           <div className="flex flex-col md:flex-row items-center justify-center gap-x-4 gap-y-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 whitespace-nowrap text-center">
-            <span>© 2026 t.lucas Transfers & Taxis. Designer by AORUBRO</span>
+            <span>© 2026 t.lucas Transfers & Taxis. Designer by <a href="https://www.aorubro.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AORUBRO</a></span>
             <span className="hidden md:block text-white/10">•</span>
             <div className="flex items-center gap-x-4">
               <a href="#" className="hover:text-white transition-colors">Politica de Privacidade & Cookies</a>
