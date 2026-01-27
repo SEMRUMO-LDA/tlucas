@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 export const COLORS = {
   greenYellow: '#DBFF66',
@@ -12,33 +12,14 @@ export const COLORS = {
 };
 
 export const Logo: React.FC<{ variant?: 'light' | 'dark'; className?: string }> = ({ variant = 'dark', className = "" }) => {
-  const [hasError, setHasError] = useState(false);
-  
-  const logoId = "1pW03nxL69b0QYjG2AMDIQ7GyQJG6uZkI";
-  const logoUrl = `https://drive.google.com/uc?id=${logoId}`;
-
-  if (hasError) {
-    return (
-      <div className={`flex flex-col select-none ${className}`}>
-        <div className={`text-2xl md:text-3xl font-black tracking-tighter leading-none ${variant === 'light' ? 'text-white' : 'text-brand-darkGreen'}`}>
-          t<span style={{ color: COLORS.greenYellow }}>.</span>lucas
-        </div>
-        <div className={`text-[8px] font-bold uppercase tracking-[0.25em] leading-none mt-1 ${variant === 'light' ? 'text-white/40' : 'text-gray-500'}`}>
-          Transfers & Taxis
-        </div>
-      </div>
-    );
-  }
+  const logoUrl = variant === 'light' ? '/img/logo-light.png' : '/img/logo-dark.png';
 
   return (
     <div className={`flex items-center select-none ${className}`}>
-      <img 
-        src={logoUrl} 
-        alt="t.lucas logo" 
-        className={`h-10 md:h-12 lg:h-14 w-auto object-contain transition-all duration-500 ${
-          variant === 'light' ? 'brightness-0 invert' : 'brightness-100'
-        }`}
-        onError={() => setHasError(true)}
+      <img
+        src={logoUrl}
+        alt="t.lucas logo"
+        className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-all duration-500"
       />
     </div>
   );
@@ -72,13 +53,15 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     hero_title_3: "TO YOU.",
     hero_desc: "Airport transfers, travel between accommodations, and support for hiking or cycling trails. We adjust schedules, routes, and services to the way you travel.",
     hero_trusted: "Surgical logistics for 5,000+ explorers yearly",
-    be_title: "Secure Your Route",
+    be_title: "Book Now",
     be_pickup: "Departure Point",
     be_destination: "Destination",
     be_date: "Date",
     be_time: "Time",
     be_pax: "Group Size",
     be_btn: "Check Availability",
+    be_redirect_note: "You will be redirected to complete your booking",
+    be_secure_payment: "Secure Payment",
     be_placeholder_from: "e.g. Faro Airport (FAO)",
     be_placeholder_to: "e.g. Sagres Trailhead",
     why_tag: "WHY CHOOSE T.LUCAS",
@@ -142,13 +125,15 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     hero_title_3: "A SI.",
     hero_desc: "Transfers para aeroporto, deslocações entre alojamentos e apoio a percursos a pé ou de bicicleta. Ajustamos horários, rotas e serviços à forma como viaja.",
     hero_trusted: "Logística cirúrgica para +5.000 exploradores anuais",
-    be_title: "Garanta a sua Rota",
+    be_title: "Reserva Já",
     be_pickup: "Ponto de Partida",
     be_destination: "Destino",
     be_date: "Data",
     be_time: "Hora",
     be_pax: "Nº de Pessoas",
     be_btn: "Verificar Disponibilidade",
+    be_redirect_note: "Será redirecionado para concluir a sua reserva",
+    be_secure_payment: "Pagamento Seguro",
     be_placeholder_from: "ex: Aeroporto de Faro (FAO)",
     be_placeholder_to: "ex: Início de Trilho / Hotel",
     why_tag: "PORQUE ESCOLHER A T.LUCAS",
