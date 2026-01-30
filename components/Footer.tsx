@@ -45,32 +45,32 @@ const Footer: React.FC = () => {
             <h3 className="text-xs font-black uppercase tracking-[0.3em] mb-8 text-brand-greenYellow">Travel wise:</h3>
             <div className="flex flex-wrap items-center gap-x-12 gap-y-10 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
               {/* Turismo de Portugal */}
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Turismo_de_Portugal_logo.svg/1200px-Turismo_de_Portugal_logo.svg.png" 
-                className="h-10 md:h-11 w-auto object-contain" 
-                alt="Turismo de Portugal" 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Turismo_de_Portugal_logo.svg/1200px-Turismo_de_Portugal_logo.svg.png"
+                className="h-10 md:h-11 w-auto object-contain"
+                alt="Turismo de Portugal"
               />
-              
+
               {/* Algarve */}
-              <img 
-                src="https://www.visitalgarve.pt/img/logo-algarve.png" 
-                className="h-8 md:h-9 w-auto object-contain brightness-0 invert" 
-                alt="Algarve Region" 
+              <img
+                src="https://www.visitalgarve.pt/img/logo-algarve.png"
+                className="h-8 md:h-9 w-auto object-contain brightness-0 invert"
+                alt="Algarve Region"
               />
-              
+
               {/* Associação Turismo do Algarve */}
               <div className="flex items-center gap-3">
-                 <div className="w-9 h-9 rounded-full border-2 border-brand-greenYellow flex items-center justify-center">
-                    <span className="text-[9px] font-black text-brand-greenYellow">ATA</span>
-                 </div>
-                 <span className="text-[10px] font-black uppercase tracking-tighter text-white leading-tight">Associação Turismo<br/>do Algarve</span>
+                <div className="w-9 h-9 rounded-full border-2 border-brand-greenYellow flex items-center justify-center">
+                  <span className="text-[9px] font-black text-brand-greenYellow">ATA</span>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-tighter text-white leading-tight">Associação Turismo<br />do Algarve</span>
               </div>
 
               {/* TripAdvisor */}
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" 
-                className="h-8 md:h-9 w-auto object-contain brightness-0 invert" 
-                alt="TripAdvisor" 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg"
+                className="h-8 md:h-9 w-auto object-contain brightness-0 invert"
+                alt="TripAdvisor"
               />
             </div>
           </div>
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
               <span className="text-white/10">•</span>
               <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Livro de reclamações</a>
               <span className="text-white/10">•</span>
-              <span className="text-brand-greenYellow/40">RNAVT: 0000</span>
+              <span className="text-brand-greenYellow/40">RNAVT: 10199</span>
             </div>
           </div>
         </div>

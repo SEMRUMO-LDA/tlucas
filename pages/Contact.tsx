@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Phone / WhatsApp</p>
-                    <p className="font-bold text-brand-darkGreen">+351 123 456 789</p>
+                    <p className="font-bold text-brand-darkGreen">+351 967 910 227</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Email</p>
-                    <p className="font-bold text-brand-darkGreen">bookings@tlucas.com</p>
+                    <p className="font-bold text-brand-darkGreen">taxislucaselucas@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -59,8 +59,8 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="mt-12 pt-8 border-t border-gray-100">
-                <a 
-                  href="https://wa.me/351123456789" 
+                <a
+                  href="https://wa.me/351123456789"
                   className="w-full bg-[#25D366] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
                 >
                   <MessageCircle size={24} />
@@ -92,19 +92,19 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Full Name</label>
-                      <input 
+                      <input
                         required
-                        type="text" 
-                        placeholder="John Doe" 
+                        type="text"
+                        placeholder="John Doe"
                         className="w-full bg-gray-50 border-gray-200 rounded-xl py-4 px-6 outline-none focus:ring-2 focus:ring-brand-caribbeanGreen"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Email Address</label>
-                      <input 
+                      <input
                         required
-                        type="email" 
-                        placeholder="john@example.com" 
+                        type="email"
+                        placeholder="john@example.com"
                         className="w-full bg-gray-50 border-gray-200 rounded-xl py-4 px-6 outline-none focus:ring-2 focus:ring-brand-caribbeanGreen"
                       />
                     </div>
@@ -122,10 +122,10 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Phone Number</label>
-                      <input 
+                      <input
                         required
-                        type="tel" 
-                        placeholder="+351 --- --- ---" 
+                        type="tel"
+                        placeholder="+351 --- --- ---"
                         className="w-full bg-gray-50 border-gray-200 rounded-xl py-4 px-6 outline-none focus:ring-2 focus:ring-brand-caribbeanGreen"
                       />
                     </div>
@@ -133,15 +133,15 @@ const Contact: React.FC = () => {
 
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-700">Your Message / Booking Details</label>
-                    <textarea 
+                    <textarea
                       required
                       rows={4}
-                      placeholder="Please tell us your flight number, date, and any special requests..." 
+                      placeholder="Please tell us your flight number, date, and any special requests..."
                       className="w-full bg-gray-50 border-gray-200 rounded-xl py-4 px-6 outline-none focus:ring-2 focus:ring-brand-caribbeanGreen"
                     ></textarea>
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     className="w-full bg-brand-darkGreen text-white py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-brand-smokyBlack transition-all"
                   >
@@ -154,15 +154,15 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Map Placeholder */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
         <div className="h-[400px] bg-gray-200 rounded-[40px] overflow-hidden relative border border-gray-300">
-           <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold">
-             Interactive Map Placeholder
-           </div>
-           {/* In a real app, an iframe for Google Maps would go here */}
-           <img src="https://picsum.photos/seed/map-faro/1200/400?grayscale" className="w-full h-full object-cover opacity-30" alt="Map Area" />
+          <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold">
+            Interactive Map Placeholder
+          </div>
+          {/* In a real app, an iframe for Google Maps would go here */}
+          <img src="https://picsum.photos/seed/map-faro/1200/400?grayscale" className="w-full h-full object-cover opacity-30" alt="Map Area" />
         </div>
       </section>
     </div>

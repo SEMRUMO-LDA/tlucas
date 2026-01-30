@@ -18,13 +18,13 @@ const About: React.FC = () => {
         <div className="bg-white rounded-[40px] shadow-2xl p-8 md:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <img 
-                src="https://picsum.photos/seed/tlucas-fleet/800/1000" 
-                alt="Our Fleet" 
+              <img
+                src="https://picsum.photos/seed/tlucas-fleet/800/1000"
+                alt="Our Fleet"
                 className="rounded-3xl shadow-lg w-full object-cover aspect-[4/5]"
               />
               <div className="absolute -bottom-6 -right-6 bg-brand-greenYellow p-8 rounded-3xl hidden md:block">
-                <span className="block text-4xl font-bold text-brand-darkGreen">10+</span>
+                <span className="block text-4xl font-bold text-brand-darkGreen">30+</span>
                 <span className="text-xs uppercase font-bold tracking-widest text-brand-darkGreen/70">Years Experience</span>
               </div>
             </div>

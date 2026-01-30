@@ -148,8 +148,8 @@ const MainContent: React.FC = () => {
   ];
 
   const contactPoints = [
-    { icon: <Phone size={28} />, label: t('contact_label_direct'), value: "+351 912 345 678", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
-    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "info@tlucas.com", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
+    { icon: <Phone size={28} />, label: t('contact_label_direct'), value: "+351 967 910 227", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
+    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "taxislucaselucas@gmail.com", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
     { icon: <MapPin size={28} />, label: t('contact_label_hub'), value: t('contact_hub_value'), color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" }
   ];
 
@@ -256,7 +256,7 @@ const MainContent: React.FC = () => {
                 <img src="/img/how-we-work.jpg" alt="Iconic Algarve Coast, Portugal" className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
               </div>
               <div className="reveal-scale delay-400 absolute -bottom-8 md:-bottom-10 lg:-bottom-12 -right-4 md:-right-6 lg:-right-12 bg-brand-greenYellow p-8 lg:p-12 rounded-[24px] lg:rounded-[40px] shadow-2xl hidden sm:block border-4 lg:border-8 border-brand-darkGreen z-20">
-                <p className="text-5xl lg:text-7xl font-black text-brand-darkGreen leading-none mb-2 tracking-tighter">10+</p>
+                <p className="text-5xl lg:text-7xl font-black text-brand-darkGreen leading-none mb-2 tracking-tighter">30+</p>
                 <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.3em] text-brand-darkGreen/60 text-center">{t('about_exp')}</p>
               </div>
             </div>
