@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { Logo, useTranslation } from '../constants';
+import PrivacyModal from './PrivacyModal';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -16,6 +19,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-darkGreen text-brand-antiFlashWhite pt-24 pb-12 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        {/* ... existing content ... */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-16 lg:gap-x-24 mb-20">
           {/* Column 1: Logo & Description (Spans 4/12) */}
           <div className="lg:col-span-4 space-y-8">
@@ -84,7 +88,12 @@ const Footer: React.FC = () => {
             <span>© 2026 t.lucas Transfers & Taxis. Designer by <a href="https://www.aorubro.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AORUBRO</a></span>
             <span className="hidden md:block text-white/10">•</span>
             <div className="flex items-center gap-x-4">
-              <a href="#" className="hover:text-white transition-colors">Politica de Privacidade & Cookies</a>
+              <button
+                onClick={() => setIsPrivacyOpen(true)}
+                className="hover:text-white transition-colors uppercase"
+              >
+                Politica de Privacidade & Cookies
+              </button>
               <span className="text-white/10">•</span>
               <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Livro de reclamações</a>
               <span className="text-white/10">•</span>
@@ -93,6 +102,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <PrivacyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
     </footer>
   );
 };
