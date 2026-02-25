@@ -35,15 +35,15 @@ const BookingEngine: React.FC = () => {
           <div className="bg-white rounded-3xl p-5 shadow-inner border border-gray-100 overflow-hidden flex flex-col">
             <div className="w-full relative">
               <iframe
-                src="https://aorubro.pt/transfergo/?org=tlucas&mode=widget"
+                src="https://transfersgo.pt/app/?org=tlucas&mode=widget"
                 width="100%"
-                height="225"
+                height="200"
                 frameBorder="0"
                 style={{
                   border: 0,
                   width: '100%',
-                  height: '225px',
-                  borderRadius: '4px',
+                  height: '200px',
+                  borderRadius: '12px',
                   overflow: 'hidden',
                   display: 'block'
                 }}
