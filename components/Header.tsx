@@ -12,10 +12,10 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -46,32 +46,30 @@ const Header: React.FC = () => {
   const isHeaderSolid = scrolled;
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
-      isHeaderSolid 
-        ? 'bg-white shadow-md py-4' 
-        : 'bg-transparent py-8'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${isHeaderSolid
+      ? 'bg-white shadow-md py-4'
+      : 'bg-transparent py-8'
+      }`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-2 lg:grid-cols-12 items-center">
-          
+        <div className="flex justify-between items-center lg:grid lg:grid-cols-12">
+
           {/* Logo Section */}
-          <div className="lg:col-span-3 flex items-center">
+          <div className="lg:col-span-4 flex items-center">
             <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="flex-shrink-0 transition-transform active:scale-95">
               <Logo variant={isHeaderSolid ? 'dark' : 'light'} />
             </a>
           </div>
 
           {/* Desktop Navigation Section */}
-          <div className="hidden lg:flex lg:col-span-9 items-center justify-end gap-10">
-            <nav className="flex space-x-10">
+          <div className="hidden lg:flex lg:col-span-8 items-center justify-end gap-6">
+            <nav className="flex space-x-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className={`group relative text-[10px] font-black uppercase tracking-[0.35em] transition-colors whitespace-nowrap overflow-hidden ${
-                    isHeaderSolid ? 'text-brand-darkGreen' : 'text-white/80'
-                  }`}
+                  className={`group relative text-[10px] font-black uppercase tracking-[0.15em] transition-colors whitespace-nowrap overflow-hidden ${isHeaderSolid ? 'text-brand-darkGreen' : 'text-white/80'
+                    }`}
                 >
                   <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{link.name}</span>
                   <span className="absolute left-0 top-full inline-block transition-transform duration-300 group-hover:-translate-y-full text-brand-caribbeanGreen">{link.name}</span>
@@ -80,7 +78,7 @@ const Header: React.FC = () => {
             </nav>
 
             <div className="flex items-center gap-6">
-              <button 
+              <button
                 onClick={toggleLanguage}
                 className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors ${isHeaderSolid ? 'text-brand-darkGreen hover:text-brand-caribbeanGreen' : 'text-white/80 hover:text-brand-greenYellow'}`}
               >
@@ -89,7 +87,7 @@ const Header: React.FC = () => {
               </button>
 
               <div className={`transition-all duration-500 transform ${isHeaderSolid ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'}`}>
-                <a 
+                <a
                   href="#home"
                   onClick={(e) => scrollToSection(e, '#home')}
                   className="group px-8 py-3.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center transition-all shadow-xl whitespace-nowrap bg-brand-darkGreen text-brand-greenYellow hover:bg-brand-greenYellow hover:text-brand-darkGreen active:scale-95"
@@ -103,23 +101,21 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center justify-end gap-4">
-            <button 
+            <button
               onClick={toggleLanguage}
-              className={`text-[10px] font-black p-2 rounded-lg border transition-colors ${
-                isHeaderSolid 
-                  ? 'border-gray-100 text-brand-darkGreen' 
-                  : 'border-white/20 text-white'
-              }`}
+              className={`text-[10px] font-black p-2 rounded-lg border transition-colors ${isHeaderSolid
+                ? 'border-gray-100 text-brand-darkGreen'
+                : 'border-white/20 text-white'
+                }`}
             >
               {lang === 'en' ? 'PT' : 'EN'}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-xl transition-all active:scale-90 ${
-                isHeaderSolid 
-                  ? 'bg-gray-100 text-brand-darkGreen' 
-                  : 'bg-white/10 text-white'
-              }`}
+              className={`p-2 rounded-xl transition-all active:scale-90 ${isHeaderSolid
+                ? 'bg-gray-100 text-brand-darkGreen'
+                : 'bg-white/10 text-white'
+                }`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

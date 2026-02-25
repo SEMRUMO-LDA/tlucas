@@ -19,14 +19,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-16 lg:gap-x-24 mb-20">
           {/* Column 1: Logo & Description (Spans 4/12) */}
           <div className="lg:col-span-4 space-y-8">
-            <Logo variant="light" />
+            <img src="/img/t_lucas_tl_white.png" className="h-10 w-auto object-contain" alt="t.lucas" />
             <p className="text-gray-400 text-sm leading-relaxed font-medium max-w-sm">
               {t('footer_desc')}
             </p>
-            <div className="flex space-x-3">
-              <SocialLink icon={<Instagram size={18} />} />
-              <SocialLink icon={<Facebook size={18} />} />
-            </div>
           </div>
 
           {/* Column 2: Navigation (Spans 2/12) */}
@@ -43,35 +39,42 @@ const Footer: React.FC = () => {
           {/* Column 3: Travel Wise (Spans 6/12) */}
           <div className="lg:col-span-6">
             <h3 className="text-xs font-black uppercase tracking-[0.3em] mb-8 text-brand-greenYellow">Travel wise:</h3>
-            <div className="flex flex-wrap items-center gap-x-12 gap-y-10 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
+            <div className="flex flex-wrap items-center gap-x-12 gap-y-10">
               {/* Turismo de Portugal */}
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Turismo_de_Portugal_logo.svg/1200px-Turismo_de_Portugal_logo.svg.png"
-                className="h-10 md:h-11 w-auto object-contain"
-                alt="Turismo de Portugal"
-              />
+              <a href="https://www.turismodeportugal.pt/pt/Paginas/homepage.aspx" target="_blank" rel="noopener noreferrer" className="transition-all logo-gray-filter hover-lime-filter hover:scale-105 duration-300">
+                <img
+                  src="/img/turismo-de-portugal.png"
+                  className="h-8 md:h-9 w-auto object-contain"
+                  alt="Turismo de Portugal"
+                />
+              </a>
 
               {/* Algarve */}
-              <img
-                src="https://www.visitalgarve.pt/img/logo-algarve.png"
-                className="h-8 md:h-9 w-auto object-contain brightness-0 invert"
-                alt="Algarve Region"
-              />
+              <a href="https://visitalgarve.pt/" target="_blank" rel="noopener noreferrer" className="transition-all logo-gray-filter hover-lime-filter hover:scale-105 duration-300">
+                <img
+                  src="/img/visit-algarve-portugal.svg"
+                  className="h-7 md:h-8 w-auto object-contain"
+                  alt="Algarve Region"
+                />
+              </a>
 
               {/* Associação Turismo do Algarve */}
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full border-2 border-brand-greenYellow flex items-center justify-center">
-                  <span className="text-[9px] font-black text-brand-greenYellow">ATA</span>
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-tighter text-white leading-tight">Associação Turismo<br />do Algarve</span>
-              </div>
+              <a href="https://www.algarvepromotion.pt/pt/corporate" target="_blank" rel="noopener noreferrer" className="transition-all logo-gray-filter hover-lime-filter hover:scale-105 duration-300">
+                <img
+                  src="/img/associacao-turismo-do-algarve.svg"
+                  className="h-8 md:h-9 w-auto object-contain"
+                  alt="Associação Turismo do Algarve"
+                />
+              </a>
 
               {/* TripAdvisor */}
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg"
-                className="h-8 md:h-9 w-auto object-contain brightness-0 invert"
-                alt="TripAdvisor"
-              />
+              <a href="https://www.tripadvisor.pt/Attraction_Review-g642199-d8478028-Reviews-Ttaxi_Travel_Transfers-Alvor_Portimao_F Faro_District_Algarve.html" target="_blank" rel="noopener noreferrer" className="transition-all logo-gray-filter hover-lime-filter hover:scale-105 duration-300">
+                <img
+                  src="/img/tripadvisor.svg"
+                  className="h-6 md:h-7 w-auto object-contain"
+                  alt="TripAdvisor"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -93,11 +96,5 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-const SocialLink: React.FC<{ icon: React.ReactNode }> = ({ icon }) => (
-  <a href="#" className="p-3 bg-white/5 text-white rounded-full hover:bg-brand-greenYellow hover:text-brand-darkGreen transition-all border border-white/5">
-    {icon}
-  </a>
-);
 
 export default Footer;

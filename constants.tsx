@@ -12,14 +12,14 @@ export const COLORS = {
 };
 
 export const Logo: React.FC<{ variant?: 'light' | 'dark'; className?: string }> = ({ variant = 'dark', className = "" }) => {
-  const logoUrl = variant === 'light' ? '/img/logo-light.png' : '/img/logo-dark.png';
+  const logoUrl = variant === 'light' ? '/img/t_lucas_logo_white.png' : '/img/t_lucas_logo_dark.png';
 
   return (
     <div className={`flex items-center select-none ${className}`}>
       <img
         src={logoUrl}
         alt="t.lucas logo"
-        className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-all duration-500"
+        className="h-8 md:h-10 lg:h-12 w-auto object-contain transition-all duration-500"
       />
     </div>
   );
@@ -98,8 +98,9 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     contact_desc: "Need help planning your transfer or clarifying a specific request? We respond quickly and help you find the best solution.",
     contact_label_direct: "WhatsApp (direct support)",
     contact_label_email: "Email support",
+    contact_email_value: "info@tlucas.pt",
     contact_label_hub: "Operational base",
-    contact_hub_value: "Algarve, Portugal",
+    contact_hub_value: "Costa Vicentina & Algarve, Portugal",
     contact_form_title: "AN UNUSUAL REQUEST?",
     contact_form_subtitle: "Multi-stage hiking, cycling routes, luggage transport, or logistics for small groups. Explain your trip and we handle the rest.",
     contact_form_name: "Lead Explorer",
@@ -170,8 +171,9 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     contact_desc: "Precisa de ajuda para planear o seu transfer ou esclarecer um pedido específico? Respondemos rapidamente e ajudamos a encontrar a melhor solução.",
     contact_label_direct: "WhatsApp (apoio direto)",
     contact_label_email: "Apoio por email",
+    contact_email_value: "info@tlucas.pt",
     contact_label_hub: "Base operacional",
-    contact_hub_value: "Algarve, Portugal",
+    contact_hub_value: "Costa Vicentina & Algarve, Portugal",
     contact_form_title: "UM PEDIDO FORA DO NORMAL?",
     contact_form_subtitle: "Caminhadas por etapas, percursos de bicicleta, transporte de bagagem ou logística para pequenos grupos. Explique-nos a sua viagem e tratamos do resto.",
     contact_form_name: "Responsável pelo pedido",

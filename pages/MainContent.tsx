@@ -11,13 +11,13 @@ const BookingEngine: React.FC = () => {
       <div className="absolute -inset-6 bg-brand-greenYellow/15 rounded-[60px] blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
       {/* Main Container */}
-      <div className="relative bg-white border border-gray-100/80 rounded-[48px] md:rounded-[64px] p-8 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,34,27,0.08)] overflow-hidden flex flex-col transition-all duration-700 group-hover:shadow-[0_48px_80px_-20px_rgba(0,34,27,0.12)] group-hover:-translate-y-1">
+      <div className="relative bg-white border border-gray-100/80 rounded-[48px] md:rounded-[64px] p-6 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,34,27,0.08)] overflow-hidden flex flex-col transition-all duration-700 group-hover:shadow-[0_48px_80px_-20px_rgba(0,34,27,0.12)] group-hover:-translate-y-1">
 
         {/* Decorative Top Accent */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-brand-greenYellow rounded-b-full"></div>
 
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8 md:mb-10">
+        <div className="flex items-center justify-between mb-4 md:mb-6">
           <div className="flex flex-col">
             <h3 className="text-brand-darkGreen text-2xl md:text-3xl font-black uppercase tracking-tighter leading-none">
               {t('be_title')}
@@ -30,19 +30,19 @@ const BookingEngine: React.FC = () => {
         </div>
 
         {/* The Widget Area */}
-        <div className="relative mb-8">
+        <div className="relative mb-2">
           <div className="absolute -inset-2 bg-gray-50/50 rounded-[28px] -z-10"></div>
-          <div className="bg-white rounded-3xl p-5 shadow-inner border border-gray-100 overflow-hidden flex flex-col">
+          <div className="bg-white rounded-3xl p-2 shadow-inner border border-gray-100 overflow-hidden flex flex-col">
             <div className="w-full relative">
               <iframe
                 src="https://transfersgo.pt/app/?org=tlucas&mode=widget"
                 width="100%"
-                height="200"
+                height="260"
                 frameBorder="0"
                 style={{
                   border: 0,
                   width: '100%',
-                  height: '200px',
+                  height: '260px',
                   borderRadius: '12px',
                   overflow: 'hidden',
                   display: 'block'
@@ -56,14 +56,14 @@ const BookingEngine: React.FC = () => {
 
         {/* Footer Content */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-1">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-caribbeanGreen animate-pulse"></span>
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 text-center leading-relaxed">
               {t('be_redirect_note')}
             </p>
           </div>
 
-          <div className="w-full pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="w-full pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center opacity-60 transition-opacity hover:opacity-100 grayscale hover:grayscale-0">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg"
@@ -147,9 +147,45 @@ const MainContent: React.FC = () => {
     }
   ];
 
+  const [quoteData, setQuoteData] = useState({ name: '', email: '', message: '' });
+  const [isQuoteSubmitted, setIsQuoteSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: quoteData.name,
+          email: quoteData.email,
+          message: quoteData.message,
+        })
+      });
+
+      if (response.ok) {
+        setIsQuoteSubmitted(true);
+        setQuoteData({ name: '', email: '', message: '' });
+        setTimeout(() => setIsQuoteSubmitted(false), 5000);
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || "Something went wrong. Please try again."}`);
+      }
+    } catch (error) {
+      alert("Error sending request. Please check your connection.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   const contactPoints = [
     { icon: <Phone size={28} />, label: t('contact_label_direct'), value: "+351 967 910 227", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
-    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "taxislucaselucas@gmail.com", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
+    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "info@tlucas.pt", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
     { icon: <MapPin size={28} />, label: t('contact_label_hub'), value: t('contact_hub_value'), color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" }
   ];
 
@@ -355,23 +391,56 @@ const MainContent: React.FC = () => {
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/50 mb-10 leading-relaxed">{t('contact_form_subtitle')}</p>
 
-                  <form className="space-y-6 md:space-y-8" onSubmit={(e) => e.preventDefault()}>
+                  <form className="space-y-6 md:space-y-8" onSubmit={handleQuoteSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                       <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_name')}</label>
-                        <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10" placeholder={t('contact_form_placeholder_name')} />
+                        <input
+                          type="text"
+                          required
+                          value={quoteData.name}
+                          onChange={(e) => setQuoteData({ ...quoteData, name: e.target.value })}
+                          className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
+                          placeholder={t('contact_form_placeholder_name')}
+                        />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_email')}</label>
-                        <input type="email" className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10" placeholder={t('contact_form_placeholder_email')} />
+                        <input
+                          type="email"
+                          required
+                          value={quoteData.email}
+                          onChange={(e) => setQuoteData({ ...quoteData, email: e.target.value })}
+                          className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
+                          placeholder={t('contact_form_placeholder_email')}
+                        />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_help')}</label>
-                      <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none resize-none transition-all hover:bg-white/10" placeholder={t('contact_form_placeholder_msg')}></textarea>
+                      <textarea
+                        rows={4}
+                        required
+                        value={quoteData.message}
+                        onChange={(e) => setQuoteData({ ...quoteData, message: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none resize-none transition-all hover:bg-white/10"
+                        placeholder={t('contact_form_placeholder_msg')}
+                      ></textarea>
                     </div>
-                    <button type="submit" className="group w-full bg-brand-greenYellow text-brand-darkGreen py-5 md:py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center gap-4 hover:bg-white transition-all shadow-xl active:scale-95">
-                      {t('contact_form_btn')} <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <button
+                      type="submit"
+                      disabled={isSending}
+                      className={`group w-full py-5 md:py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center gap-4 transition-all shadow-xl active:scale-95 ${isQuoteSubmitted
+                        ? 'bg-brand-caribbeanGreen text-white'
+                        : isSending
+                          ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                          : 'bg-brand-greenYellow text-brand-darkGreen hover:bg-white'
+                        }`}
+                    >
+                      {isQuoteSubmitted ? 'THANK YOU!' : isSending ? 'SENDING...' : t('contact_form_btn')}
+                      {!isQuoteSubmitted && !isSending && <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                      {isQuoteSubmitted && <Check size={16} />}
+                      {isSending && <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>}
                     </button>
                   </form>
                 </div>

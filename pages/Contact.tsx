@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Email</p>
-                    <p className="font-bold text-brand-darkGreen">taxislucaselucas@gmail.com</p>
+                    <p className="font-bold text-brand-darkGreen">info@tlucas.pt</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Office</p>
-                    <p className="font-bold text-brand-darkGreen">Faro, Algarve, Portugal</p>
+                    <p className="font-bold text-brand-darkGreen">Costa Vicentina & Algarve, Portugal</p>
                   </div>
                 </div>
               </div>
