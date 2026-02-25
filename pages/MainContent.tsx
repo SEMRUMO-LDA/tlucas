@@ -217,11 +217,13 @@ const MainContent: React.FC = () => {
               {/* Review Summary Badge */}
               <div className="reveal-left delay-300 max-w-lg">
                 <div className="relative inline-flex items-center gap-5 py-3.5 px-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full group transition-all duration-500 hover:border-brand-greenYellow/20 shadow-2xl">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg"
-                    className="h-5 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
-                    alt="TripAdvisor"
-                  />
+                  <a href="https://www.tripadvisor.pt/Attraction_Review-g642199-d8478028-Reviews-Ttaxi_Travel_Transfers-Alvor_Portimao_F Faro_District_Algarve.html" target="_blank" rel="noopener noreferrer" className="transition-all hover:scale-105 duration-300">
+                    <img
+                      src="/img/tripadvisor.svg"
+                      className="h-5 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                      alt="TripAdvisor"
+                    />
+                  </a>
                   <div className="h-4 w-[1px] bg-white/20"></div>
                   <div className="flex flex-col">
                     <div className="flex text-brand-greenYellow gap-0.5">

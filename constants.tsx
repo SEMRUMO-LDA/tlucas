@@ -19,7 +19,7 @@ export const Logo: React.FC<{ variant?: 'light' | 'dark'; className?: string }> 
       <img
         src={logoUrl}
         alt="t.lucas logo"
-        className="h-8 md:h-10 lg:h-12 w-auto object-contain transition-all duration-500"
+        className="h-6 md:h-8 lg:h-9 w-auto object-contain transition-all duration-500"
       />
     </div>
   );
