@@ -307,7 +307,7 @@ const MainContent: React.FC = () => {
             {whyUsPoints.map((item, idx) => (
               <div
                 key={idx}
-                className={`shrink-0 w-[80vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
+                className={`shrink-0 w-[75vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20 rounded-[40px] md:rounded-[56px] -z-10 group-hover:opacity-40 transition-opacity`}></div>
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[20px] md:rounded-[28px] flex items-center justify-center mb-8 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500 shadow-sm">
@@ -319,6 +319,29 @@ const MainContent: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Pagination Dots */}
+          <div className="flex lg:hidden flex-col items-center mt-12 gap-4">
+            <div className="flex items-center gap-3">
+              {whyUsPoints.map((_, i) => {
+                const step = 100 / (whyUsPoints.length - 1);
+                const isActive = Math.abs(whyUsPercent - (i * step)) < (step / 2);
+                return (
+                  <div
+                    key={i}
+                    className={`h-1.5 transition-all duration-500 rounded-full ${isActive ? 'w-8 bg-brand-caribbeanGreen' : 'w-1.5 bg-gray-200'
+                      }`}
+                  />
+                );
+              })}
+            </div>
+            <div className="w-32 h-[1px] bg-gray-100 relative overflow-hidden">
+              <div
+                className="absolute inset-y-0 left-0 bg-brand-caribbeanGreen/30 transition-all duration-300"
+                style={{ width: `${whyUsPercent}%` }}
+              />
+            </div>
           </div>
         </div>
       </section>
