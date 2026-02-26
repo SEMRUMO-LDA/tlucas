@@ -262,12 +262,12 @@ const MainContent: React.FC = () => {
           <div
             ref={whyUsScrollRef}
             onScroll={() => handleScroll(whyUsScrollRef, setWhyUsPercent)}
-            className="flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-x-visible no-scrollbar gap-6 lg:gap-12 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 lg:mx-0 lg:px-0"
+            className="reveal flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-x-visible no-scrollbar gap-6 lg:gap-12 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 lg:mx-0 lg:px-0"
           >
             {whyUsPoints.map((item, idx) => (
               <div
                 key={idx}
-                className={`reveal md:delay-${(idx + 1) * 100} shrink-0 w-[80vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
+                className={`shrink-0 w-[80vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20 rounded-[40px] md:rounded-[56px] -z-10 group-hover:opacity-40 transition-opacity`}></div>
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[20px] md:rounded-[28px] flex items-center justify-center mb-8 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500 shadow-sm">
