@@ -87,8 +87,10 @@ const MainContent: React.FC = () => {
   const { t } = useTranslation();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const whyUsScrollRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   const [whyUsPercent, setWhyUsPercent] = useState(0);
+  const [ctaOffset, setCtaOffset] = useState(0);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
@@ -105,8 +107,27 @@ const MainContent: React.FC = () => {
     const animatedElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     animatedElements.forEach((el) => observerRef.current?.observe(el));
 
+    const handleCtaParallax = () => {
+      if (window.innerWidth >= 1024 || !ctaRef.current) {
+        setCtaOffset(0);
+        return;
+      }
+      const rect = ctaRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const elementCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportHeight / 2;
+      const distanceToCenter = elementCenter - viewportCenter;
+
+      // Subtle parallax effect (10% of distance)
+      setCtaOffset(distanceToCenter * 0.15);
+    };
+
+    window.addEventListener('scroll', handleCtaParallax);
+    handleCtaParallax(); // Initial check
+
     return () => {
       observerRef.current?.disconnect();
+      window.removeEventListener('scroll', handleCtaParallax);
     };
   }, []);
 
@@ -325,9 +346,12 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 4: CALL TO ACTION */}
-      <section id="booking-cta" className="py-20 md:py-28 bg-white relative overflow-hidden">
+      <section id="booking-cta" ref={ctaRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
-          <div className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen p-10 md:p-20 shadow-2xl group overflow-visible">
+          <div
+            className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen p-10 md:p-20 shadow-2xl group overflow-visible will-change-transform"
+            style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : undefined, transition: 'transform 0.1s linear' }}
+          >
             <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14">
               <div className="max-w-2xl text-center lg:text-left">
