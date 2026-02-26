@@ -431,15 +431,15 @@ const MainContent: React.FC = () => {
               <div
                 ref={supportScrollRef}
                 onScroll={() => handleScroll(supportScrollRef, setSupportPercent)}
-                className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0"
+                className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0 items-stretch"
               >
                 {contactPoints.map((item, idx) => {
                   const Content = (
-                    <div className="shrink-0 w-[75vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-10 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300">
+                    <div className="shrink-0 w-[75vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-10 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300 h-full">
                       <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[24px] flex items-center justify-center shadow-md shrink-0 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500">
                         {item.icon}
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <p className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-2 leading-relaxed">
                           {item.label.split(' (').map((part, i) => (
                             <React.Fragment key={i}>
@@ -448,7 +448,7 @@ const MainContent: React.FC = () => {
                             </React.Fragment>
                           ))}
                         </p>
-                        <p className="text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors whitespace-nowrap">
+                        <p className={`text-xl sm:text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors ${item.label.includes('HUB') ? 'break-words' : 'whitespace-nowrap'}`}>
                           {item.value}
                         </p>
                       </div>
