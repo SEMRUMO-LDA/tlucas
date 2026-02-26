@@ -10,7 +10,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       setScrolled(scrollPosition > 10);
     };
 
