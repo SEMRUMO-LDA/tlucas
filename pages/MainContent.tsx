@@ -118,9 +118,8 @@ const MainContent: React.FC = () => {
       const viewportCenter = viewportHeight / 2;
       const distanceToCenter = elementCenter - viewportCenter;
 
-      // Moving in the same direction as scroll (negative distance = move down)
-      // distanceToCenter is negative when element is above center
-      setCtaOffset(-distanceToCenter * 0.2);
+      // Dampened parallax (12% of distance) to prevent large overlaps
+      setCtaOffset(-distanceToCenter * 0.12);
     };
 
     window.addEventListener('scroll', handleCtaParallax);
@@ -306,7 +305,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 3: PHILOSOPHY / ABOUT */}
-      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-hidden relative z-20">
+      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-caribbeanGreen/5 -skew-x-12 translate-x-1/2 overflow-hidden"></div>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -347,8 +346,8 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 4: CALL TO ACTION */}
-      <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative z-10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
+      <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative z-30">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-24">
           <div className="reveal-scale">
             <div
               className="relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible will-change-transform"
@@ -381,7 +380,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 5: CONTACTS */}
-      <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden z-20 relative">
+      <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
             <div className="reveal-left">
