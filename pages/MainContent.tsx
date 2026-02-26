@@ -192,7 +192,7 @@ const MainContent: React.FC = () => {
   return (
     <div className="flex flex-col overflow-x-hidden bg-grain">
       {/* SECTION 1: HERO */}
-      <section id="home" className="relative min-h-screen flex items-center bg-brand-darkGreen overflow-visible py-20 lg:py-0">
+      <section id="home" className="relative min-h-screen flex items-center bg-brand-darkGreen overflow-hidden py-20 lg:py-0">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544984243-75a802b773bc?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-[0.2] scale-110"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-brand-darkGreen via-brand-darkGreen to-transparent"></div>
@@ -248,7 +248,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 2: WHY US */}
-      <section id="why-us" className="py-20 md:py-32 bg-white overflow-visible">
+      <section id="why-us" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-6 md:gap-10">
             <div className="max-w-3xl reveal">
@@ -284,7 +284,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 3: PHILOSOPHY / ABOUT */}
-      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-visible relative">
+      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-caribbeanGreen/5 -skew-x-12 translate-x-1/2 overflow-hidden"></div>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -354,7 +354,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 5: CONTACTS */}
-      <section id="contact" className="py-20 md:py-32 bg-white overflow-visible">
+      <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
             <div className="reveal-left">
