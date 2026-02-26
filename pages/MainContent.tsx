@@ -448,7 +448,7 @@ const MainContent: React.FC = () => {
                             </React.Fragment>
                           ))}
                         </p>
-                        <p className={`text-xl sm:text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors ${item.label.includes('HUB') ? 'break-words' : 'whitespace-nowrap'}`}>
+                        <p className={`text-xl sm:text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors ${item.label.includes('HUB') ? 'whitespace-pre-line break-words' : 'whitespace-nowrap'}`}>
                           {item.value}
                         </p>
                       </div>
