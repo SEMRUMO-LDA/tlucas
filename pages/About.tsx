@@ -23,9 +23,9 @@ const About: React.FC = () => {
                 alt="Our Fleet"
                 className="rounded-3xl shadow-lg w-full object-cover aspect-[4/5]"
               />
-              <div className="absolute -bottom-6 -right-6 bg-brand-greenYellow p-8 rounded-3xl hidden md:block">
-                <span className="block text-4xl font-bold text-brand-darkGreen">30+</span>
-                <span className="text-xs uppercase font-bold tracking-widest text-brand-darkGreen/70">Years Experience</span>
+              <div className="absolute -bottom-6 -right-2 md:-right-6 bg-brand-greenYellow p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl scale-75 md:scale-100">
+                <span className="block text-3xl md:text-4xl font-bold text-brand-darkGreen text-center">30+</span>
+                <span className="text-[8px] md:text-xs uppercase font-bold tracking-widest text-brand-darkGreen/70 text-center">Years Experience</span>
               </div>
             </div>
 

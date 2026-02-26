@@ -267,7 +267,7 @@ const MainContent: React.FC = () => {
             {whyUsPoints.map((item, idx) => (
               <div
                 key={idx}
-                className={`reveal delay-${(idx + 1) * 100} shrink-0 w-[85vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
+                className={`reveal md:delay-${(idx + 1) * 100} shrink-0 w-[85vw] md:w-[50vw] lg:w-auto snap-center group relative p-8 md:p-12 rounded-[40px] md:rounded-[56px] bg-white border border-gray-100 hover:border-brand-greenYellow/40 transition-all duration-700 lg:hover:-translate-y-2 flex flex-col shadow-sm hover:shadow-2xl h-full min-h-[380px] md:min-h-[420px]`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20 rounded-[40px] md:rounded-[56px] -z-10 group-hover:opacity-40 transition-opacity`}></div>
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[20px] md:rounded-[28px] flex items-center justify-center mb-8 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500 shadow-sm">
@@ -293,9 +293,9 @@ const MainContent: React.FC = () => {
                 <div className="absolute inset-0 bg-brand-darkGreen/20 group-hover:bg-transparent transition-colors duration-700"></div>
                 <img src="/img/how-we-work.jpg" alt="Iconic Algarve Coast, Portugal" className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
               </div>
-              <div className="reveal-scale delay-400 absolute -bottom-8 md:-bottom-10 lg:-bottom-12 -right-4 md:-right-6 lg:-right-12 bg-brand-greenYellow p-8 lg:p-12 rounded-[24px] lg:rounded-[40px] shadow-2xl hidden sm:block border-4 lg:border-8 border-brand-darkGreen z-20">
-                <p className="text-5xl lg:text-7xl font-black text-brand-darkGreen leading-none mb-2 tracking-tighter">30+</p>
-                <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.3em] text-brand-darkGreen/60 text-center">{t('about_exp')}</p>
+              <div className="reveal-scale delay-400 absolute -bottom-6 md:-bottom-10 lg:-bottom-12 -right-2 md:-right-6 lg:-right-12 bg-brand-greenYellow p-6 md:p-12 rounded-[20px] md:rounded-[40px] shadow-2xl border-4 md:border-8 border-brand-darkGreen z-20 scale-75 md:scale-100">
+                <p className="text-4xl md:text-7xl font-black text-brand-darkGreen leading-none mb-1 md:mb-2 tracking-tighter text-center">30+</p>
+                <p className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-brand-darkGreen/60 text-center">{t('about_exp')}</p>
               </div>
             </div>
 
