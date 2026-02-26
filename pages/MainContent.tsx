@@ -338,12 +338,6 @@ const MainContent: React.FC = () => {
                 );
               })}
             </div>
-            <div className="w-32 h-[1px] bg-gray-100 relative overflow-hidden">
-              <div
-                className="absolute inset-y-0 left-0 bg-brand-caribbeanGreen/30 transition-all duration-300"
-                style={{ width: `${whyUsPercent}%` }}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -446,8 +440,17 @@ const MainContent: React.FC = () => {
                         {item.icon}
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-2">{item.label}</p>
-                        <p className="text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors">{item.value}</p>
+                        <p className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-2 leading-relaxed">
+                          {item.label.split(' (').map((part, i) => (
+                            <React.Fragment key={i}>
+                              {i > 0 && <br />}
+                              {i > 0 ? `(${part}` : part}
+                            </React.Fragment>
+                          ))}
+                        </p>
+                        <p className="text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors whitespace-nowrap">
+                          {item.value}
+                        </p>
                       </div>
                     </div>
                   );
@@ -478,12 +481,6 @@ const MainContent: React.FC = () => {
                       />
                     );
                   })}
-                </div>
-                <div className="w-32 h-[1px] bg-gray-100 relative overflow-hidden">
-                  <div
-                    className="absolute inset-y-0 left-0 bg-brand-caribbeanGreen/30 transition-all duration-300"
-                    style={{ width: `${supportPercent}%` }}
-                  />
                 </div>
               </div>
             </div>
