@@ -89,12 +89,14 @@ const MainContent: React.FC = () => {
   const whyUsScrollRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const parallaxCardRef = useRef<HTMLDivElement>(null);
+  const supportScrollRef = useRef<HTMLDivElement>(null);
 
   const targetOffsetRef = useRef(0);
   const currentOffsetRef = useRef(0);
   const requestRef = useRef<number>(0);
 
   const [whyUsPercent, setWhyUsPercent] = useState(0);
+  const [supportPercent, setSupportPercent] = useState(0);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
@@ -432,10 +434,14 @@ const MainContent: React.FC = () => {
                 {t('contact_desc')}
               </p>
 
-              <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0">
+              <div
+                ref={supportScrollRef}
+                onScroll={() => handleScroll(supportScrollRef, setSupportPercent)}
+                className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0"
+              >
                 {contactPoints.map((item, idx) => {
                   const Content = (
-                    <div className="shrink-0 w-[85vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-0 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300">
+                    <div className="shrink-0 w-[75vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-10 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300">
                       <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[24px] flex items-center justify-center shadow-md shrink-0 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500">
                         {item.icon}
                       </div>
@@ -456,6 +462,29 @@ const MainContent: React.FC = () => {
                     </div>
                   );
                 })}
+              </div>
+
+              {/* Support Mobile Pagination Dots */}
+              <div className="flex md:hidden flex-col items-center mt-12 gap-4">
+                <div className="flex items-center gap-3">
+                  {contactPoints.map((_, i) => {
+                    const step = 100 / (contactPoints.length - 1);
+                    const isActive = Math.abs(supportPercent - (i * step)) < (step / 2);
+                    return (
+                      <div
+                        key={i}
+                        className={`h-1.5 transition-all duration-500 rounded-full ${isActive ? 'w-8 bg-brand-caribbeanGreen' : 'w-1.5 bg-gray-200'
+                          }`}
+                      />
+                    );
+                  })}
+                </div>
+                <div className="w-32 h-[1px] bg-gray-100 relative overflow-hidden">
+                  <div
+                    className="absolute inset-y-0 left-0 bg-brand-caribbeanGreen/30 transition-all duration-300"
+                    style={{ width: `${supportPercent}%` }}
+                  />
+                </div>
               </div>
             </div>
 
