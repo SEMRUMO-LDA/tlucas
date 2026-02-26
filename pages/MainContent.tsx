@@ -118,8 +118,9 @@ const MainContent: React.FC = () => {
       const viewportCenter = viewportHeight / 2;
       const distanceToCenter = elementCenter - viewportCenter;
 
-      // Subtle parallax effect (10% of distance)
-      setCtaOffset(distanceToCenter * 0.15);
+      // Moving in the same direction as scroll (negative distance = move down)
+      // distanceToCenter is negative when element is above center
+      setCtaOffset(-distanceToCenter * 0.25);
     };
 
     window.addEventListener('scroll', handleCtaParallax);
@@ -346,15 +347,15 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 4: CALL TO ACTION */}
-      <section id="booking-cta" ref={ctaRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
+      <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
-          <div
-            className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen p-10 md:p-20 shadow-2xl group overflow-visible will-change-transform"
-            style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : undefined, transition: 'transform 0.1s linear' }}
-          >
-            <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14">
-              <div className="max-w-2xl text-center lg:text-left">
+          <div className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible">
+            <div
+              className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20 will-change-transform"
+              style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
+            >
+              <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
+              <div className="max-w-2xl text-center lg:text-left relative z-20">
                 <h2 className="reveal delay-100 text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9] break-words">
                   {t('cta_title')} {t('cta_subtitle')}
                 </h2>
@@ -362,7 +363,7 @@ const MainContent: React.FC = () => {
                   {t('cta_desc')}
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 reveal delay-300">
+              <div className="flex flex-col items-center gap-6 reveal delay-300 relative z-20">
                 <a
                   href="#home"
                   onClick={(e) => scrollToSection(e, '#home')}
