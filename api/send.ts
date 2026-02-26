@@ -22,11 +22,16 @@ export default async function handler(req: Request) {
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST || 'cpp6.webserver.pt',
             port: parseInt(process.env.SMTP_PORT || '567'),
-            secure: true, // true for 465, false for other ports. 567 might be secure.
+            secure: false, // false for most ports except 465. Use STARTTLS.
             auth: {
                 user: process.env.SMTP_USER || 'mmartinho@aorubro.pt',
                 pass: process.env.SMTP_PASS || 'W3WH6aT8]g,&sPkW',
             },
+            connectionTimeout: 10000, // 10 seconds
+            greetingTimeout: 10000,
+            socketTimeout: 10000,
+            debug: true, // Show debug info in logs
+            logger: true // Log to console
         });
 
         const mailOptions = {
