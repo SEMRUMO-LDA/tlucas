@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
-      <div className="flex flex-col min-h-screen bg-white">
+      <div className="flex flex-col min-h-screen bg-white overflow-x-hidden">
         <Header />
         <main className="flex-grow">
           <MainContent />

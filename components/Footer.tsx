@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-brand-darkGreen text-brand-antiFlashWhite pt-24 pb-12 border-t border-white/5">
+    <footer className="bg-brand-darkGreen text-brand-antiFlashWhite pt-24 pb-12 border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* ... existing content ... */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-16 lg:gap-x-24 mb-20">

@@ -207,7 +207,7 @@ const MainContent: React.FC = () => {
                 <Route className="text-brand-greenYellow" size={14} />
                 <span className="text-brand-greenYellow text-[10px] font-black uppercase tracking-[0.4em]">{t('hero_tag')}</span>
               </div>
-              <h1 className="reveal-left delay-100 text-5xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] mb-6 lg:mb-10 tracking-tighter uppercase text-white">
+              <h1 className="reveal-left delay-100 text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] mb-6 lg:mb-10 tracking-tighter uppercase text-white break-words">
                 {t('hero_title_1')} {t('hero_title_2')} {t('hero_title_3')}
               </h1>
               <p className="reveal-left delay-200 text-base md:text-lg lg:text-xl text-gray-400 mb-8 lg:mb-10 leading-relaxed font-medium max-w-xl">
@@ -253,7 +253,7 @@ const MainContent: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-6 md:gap-10">
             <div className="max-w-3xl reveal">
               <h2 className="text-xs font-black text-brand-caribbeanGreen uppercase tracking-[0.5em] mb-4 md:mb-6">{t('why_tag')}</h2>
-              <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-brand-darkGreen tracking-tighter uppercase leading-[0.9]">
+              <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-brand-darkGreen tracking-tighter uppercase leading-[0.9] break-words">
                 {t('why_title_1')} {t('why_title_2')} {t('why_title_3')}
               </h1>
             </div>
@@ -301,7 +301,7 @@ const MainContent: React.FC = () => {
 
             <div className="reveal-right delay-200">
               <h2 className="text-xs font-black text-brand-greenYellow uppercase tracking-[0.6em] mb-6 md:mb-8">{t('about_tag')}</h2>
-              <h3 className="text-4xl lg:text-7xl font-black text-white tracking-tighter mb-8 md:mb-10 uppercase leading-[1] text-balance">
+              <h3 className="text-4xl lg:text-7xl font-black text-white tracking-tighter mb-8 md:mb-10 uppercase leading-[1] text-balance break-words">
                 {t('about_title_1')} {t('about_title_2')} {t('about_title_3')}
               </h3>
               <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium max-w-lg mb-10 md:mb-12">
@@ -325,13 +325,13 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 4: CALL TO ACTION */}
-      <section id="booking-cta" className="py-20 md:py-28 bg-white relative overflow-visible">
+      <section id="booking-cta" className="py-20 md:py-28 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
           <div className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen p-10 md:p-20 shadow-2xl group overflow-visible">
             <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14">
               <div className="max-w-2xl text-center lg:text-left">
-                <h2 className="reveal delay-100 text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9]">
+                <h2 className="reveal delay-100 text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9] break-words">
                   {t('cta_title')} {t('cta_subtitle')}
                 </h2>
                 <p className="reveal delay-200 text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
@@ -359,7 +359,7 @@ const MainContent: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
             <div className="reveal-left">
               <h2 className="text-xs font-black text-brand-caribbeanGreen uppercase tracking-[0.5em] mb-6">{t('contact_tag')}</h2>
-              <h3 className="text-5xl md:text-7xl font-black text-brand-darkGreen tracking-tighter mb-8 uppercase leading-tight">{t('contact_title')}</h3>
+              <h3 className="text-4xl sm:text-5xl md:text-7xl font-black text-brand-darkGreen tracking-tighter mb-8 uppercase leading-tight break-words">{t('contact_title')}</h3>
               <p className="text-gray-500 text-lg md:text-xl leading-relaxed font-medium max-w-lg mb-12 md:mb-16">
                 {t('contact_desc')}
               </p>

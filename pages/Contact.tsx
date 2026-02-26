@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
     <div className="bg-brand-antiFlashWhite pb-24">
       <section className="bg-brand-darkGreen py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 break-words">Get in Touch</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Book your next ride or ask us a question. We're available 24/7 to assist you.
           </p>

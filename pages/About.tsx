@@ -6,8 +6,8 @@ const About: React.FC = () => {
   return (
     <div className="bg-brand-antiFlashWhite">
       <section className="bg-brand-darkGreen pt-20 pb-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">About t.lucas</h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 break-words">About t.lucas</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             A legacy of excellence in personal transport, rooted in reliability and passenger satisfaction.
           </p>
