@@ -29,24 +29,24 @@ const Contact: React.FC = () => {
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
               <h3 className="text-2xl font-bold text-brand-darkGreen mb-8">Contact Info</h3>
               <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="p-3 bg-brand-softGreen text-brand-caribbeanGreen rounded-2xl h-fit">
+                <a href="https://wa.me/351967910227" target="_blank" rel="noopener noreferrer" className="flex gap-4 group/item">
+                  <div className="p-3 bg-brand-softGreen text-brand-caribbeanGreen rounded-2xl h-fit group-hover/item:bg-brand-darkGreen group-hover/item:text-brand-greenYellow transition-all">
                     <Phone size={24} />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Phone / WhatsApp</p>
-                    <p className="font-bold text-brand-darkGreen">+351 967 910 227</p>
+                    <p className="font-bold text-brand-darkGreen group-hover/item:text-brand-caribbeanGreen transition-colors">+351 967 910 227</p>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="p-3 bg-brand-softGreen text-brand-caribbeanGreen rounded-2xl h-fit">
+                </a>
+                <a href="mailto:info@tlucas.pt" className="flex gap-4 group/item">
+                  <div className="p-3 bg-brand-softGreen text-brand-caribbeanGreen rounded-2xl h-fit group-hover/item:bg-brand-darkGreen group-hover/item:text-brand-greenYellow transition-all">
                     <Mail size={24} />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase mb-1">Email</p>
-                    <p className="font-bold text-brand-darkGreen">info@tlucas.pt</p>
+                    <p className="font-bold text-brand-darkGreen group-hover/item:text-brand-caribbeanGreen transition-colors">info@tlucas.pt</p>
                   </div>
-                </div>
+                </a>
                 <div className="flex gap-4">
                   <div className="p-3 bg-brand-softGreen text-brand-caribbeanGreen rounded-2xl h-fit">
                     <MapPin size={24} />
@@ -60,7 +60,9 @@ const Contact: React.FC = () => {
 
               <div className="mt-12 pt-8 border-t border-gray-100">
                 <a
-                  href="https://wa.me/351123456789"
+                  href="https://wa.me/351967910227"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full bg-[#25D366] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
                 >
                   <MessageCircle size={24} />

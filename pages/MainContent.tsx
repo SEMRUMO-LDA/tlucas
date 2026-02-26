@@ -184,8 +184,8 @@ const MainContent: React.FC = () => {
   };
 
   const contactPoints = [
-    { icon: <Phone size={28} />, label: t('contact_label_direct'), value: "+351 967 910 227", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
-    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "info@tlucas.pt", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" },
+    { icon: <Phone size={28} />, label: t('contact_label_direct'), value: "+351 967 910 227", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10", link: "https://wa.me/351967910227" },
+    { icon: <Mail size={28} />, label: t('contact_label_email'), value: "info@tlucas.pt", color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10", link: "mailto:info@tlucas.pt" },
     { icon: <MapPin size={28} />, label: t('contact_label_hub'), value: t('contact_hub_value'), color: "from-brand-caribbeanGreen/5 to-brand-caribbeanGreen/10" }
   ];
 
@@ -365,17 +365,29 @@ const MainContent: React.FC = () => {
               </p>
 
               <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0">
-                {contactPoints.map((item, idx) => (
-                  <div key={idx} className="shrink-0 w-[85vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-0 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[24px] flex items-center justify-center shadow-md shrink-0 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500">
-                      {item.icon}
+                {contactPoints.map((item, idx) => {
+                  const Content = (
+                    <div className="shrink-0 w-[85vw] md:w-full snap-center flex gap-6 md:gap-8 group items-center bg-white md:bg-transparent p-6 md:p-0 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[24px] flex items-center justify-center shadow-md shrink-0 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-2">{item.label}</p>
+                        <p className="text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors">{item.value}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-2">{item.label}</p>
-                      <p className="text-2xl md:text-3xl font-black text-brand-darkGreen tracking-tight group-hover:text-brand-caribbeanGreen transition-colors">{item.value}</p>
+                  );
+
+                  return item.link ? (
+                    <a key={idx} href={item.link} target={item.link?.startsWith('http') ? '_blank' : undefined} rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined} className="contents">
+                      {Content}
+                    </a>
+                  ) : (
+                    <div key={idx} className="contents">
+                      {Content}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
