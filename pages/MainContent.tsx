@@ -192,7 +192,7 @@ const MainContent: React.FC = () => {
   return (
     <div className="flex flex-col overflow-x-hidden bg-grain">
       {/* SECTION 1: HERO */}
-      <section id="home" className="relative min-h-screen flex items-center bg-brand-darkGreen overflow-hidden py-20 lg:py-0">
+      <section id="home" className="relative min-h-screen flex items-center bg-brand-darkGreen overflow-hidden py-12 lg:py-0">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544984243-75a802b773bc?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-[0.2] scale-110"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-brand-darkGreen via-brand-darkGreen to-transparent"></div>
@@ -200,7 +200,7 @@ const MainContent: React.FC = () => {
           <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-brand-caribbeanGreen/5 rounded-full blur-[120px] animate-pulse-slow delay-1000"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10 w-full pt-32 lg:pt-40 pb-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10 w-full pt-20 sm:pt-32 lg:pt-40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-6 text-white">
               <div className="reveal-left flex items-center gap-3 mb-6 lg:mb-8 ml-1">
