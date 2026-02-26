@@ -1,21 +1,16 @@
 import nodemailer from 'nodemailer';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function handler(req: Request) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (req.method !== 'POST') {
-        return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-            status: 405,
-            headers: { 'Content-Type': 'application/json' },
-        });
+        return res.status(405).json({ error: 'Method not allowed' });
     }
 
     try {
-        const { name, email, message } = await req.json();
+        const { name, email, message } = req.body;
 
         if (!name || !email || !message) {
-            return new Response(JSON.stringify({ error: 'Missing required fields' }), {
-                status: 400,
-                headers: { 'Content-Type': 'application/json' },
-            });
+            return res.status(400).json({ error: 'Missing required fields' });
         }
 
         // Create transporter
@@ -27,11 +22,11 @@ export default async function handler(req: Request) {
                 user: process.env.SMTP_USER || 'mmartinho@aorubro.pt',
                 pass: process.env.SMTP_PASS || 'W3WH6aT8]g,&sPkW',
             },
-            connectionTimeout: 10000, // 10 seconds
-            greetingTimeout: 10000,
-            socketTimeout: 10000,
-            debug: true, // Show debug info in logs
-            logger: true // Log to console
+            connectionTimeout: 15000,
+            greetingTimeout: 15000,
+            socketTimeout: 15000,
+            debug: true,
+            logger: true
         });
 
         const mailOptions = {
@@ -61,15 +56,9 @@ export default async function handler(req: Request) {
 
         await transporter.sendMail(mailOptions);
 
-        return new Response(JSON.stringify({ success: true, message: 'Email sent successfully' }), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' },
-        });
+        return res.status(200).json({ success: true, message: 'Email sent successfully' });
     } catch (error) {
         console.error('SMTP Error:', error);
-        return new Response(JSON.stringify({ error: (error as Error).message }), {
-            status: 500,
-            headers: { 'Content-Type': 'application/json' },
-        });
+        return res.status(500).json({ error: (error as Error).message });
     }
 }
