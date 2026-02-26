@@ -456,11 +456,11 @@ const MainContent: React.FC = () => {
                   );
 
                   return item.link ? (
-                    <a key={idx} href={item.link} target={item.link?.startsWith('http') ? '_blank' : undefined} rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined} className="contents">
+                    <a key={idx} href={item.link} target={item.link?.startsWith('http') ? '_blank' : undefined} rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex shrink-0 h-auto">
                       {Content}
                     </a>
                   ) : (
-                    <div key={idx} className="contents">
+                    <div key={idx} className="flex shrink-0 h-auto">
                       {Content}
                     </div>
                   );
