@@ -88,9 +88,13 @@ const MainContent: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const whyUsScrollRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const parallaxCardRef = useRef<HTMLDivElement>(null);
+
+  const targetOffsetRef = useRef(0);
+  const currentOffsetRef = useRef(0);
+  const requestRef = useRef<number>(0);
 
   const [whyUsPercent, setWhyUsPercent] = useState(0);
-  const [ctaOffset, setCtaOffset] = useState(0);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
@@ -107,27 +111,42 @@ const MainContent: React.FC = () => {
     const animatedElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     animatedElements.forEach((el) => observerRef.current?.observe(el));
 
-    const handleCtaParallax = () => {
-      if (!ctaRef.current) {
-        setCtaOffset(0);
-        return;
+    const animate = () => {
+      // Linear interpolation (lerp) for smooth movement
+      const lerpFactor = 0.1;
+      const diff = targetOffsetRef.current - currentOffsetRef.current;
+
+      if (Math.abs(diff) > 0.1) {
+        currentOffsetRef.current += diff * lerpFactor;
+        if (parallaxCardRef.current) {
+          parallaxCardRef.current.style.transform = `translateY(${currentOffsetRef.current}px)`;
+        }
       }
+
+      requestRef.current = requestAnimationFrame(animate);
+    };
+
+    const handleCtaParallax = () => {
+      if (!ctaRef.current) return;
+
       const rect = ctaRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       const elementCenter = rect.top + rect.height / 2;
       const viewportCenter = viewportHeight / 2;
       const distanceToCenter = elementCenter - viewportCenter;
 
-      // Dampened parallax (12% of distance) to prevent large overlaps
-      setCtaOffset(-distanceToCenter * 0.12);
+      // Dampened parallax factor
+      targetOffsetRef.current = -distanceToCenter * 0.12;
     };
 
     window.addEventListener('scroll', handleCtaParallax);
     handleCtaParallax(); // Initial check
+    requestRef.current = requestAnimationFrame(animate);
 
     return () => {
       observerRef.current?.disconnect();
       window.removeEventListener('scroll', handleCtaParallax);
+      cancelAnimationFrame(requestRef.current);
     };
   }, []);
 
@@ -350,8 +369,8 @@ const MainContent: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-24">
           <div className="reveal-scale">
             <div
+              ref={parallaxCardRef}
               className="relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible will-change-transform"
-              style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
             >
               <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20">
                 <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
