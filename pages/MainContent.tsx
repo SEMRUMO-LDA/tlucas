@@ -120,7 +120,7 @@ const MainContent: React.FC = () => {
 
       // Moving in the same direction as scroll (negative distance = move down)
       // distanceToCenter is negative when element is above center
-      setCtaOffset(-distanceToCenter * 0.25);
+      setCtaOffset(-distanceToCenter * 0.2);
     };
 
     window.addEventListener('scroll', handleCtaParallax);
@@ -306,7 +306,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 3: PHILOSOPHY / ABOUT */}
-      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-hidden relative">
+      <section id="about" className="py-20 md:py-32 bg-brand-darkGreen text-white overflow-hidden relative z-20">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-caribbeanGreen/5 -skew-x-12 translate-x-1/2 overflow-hidden"></div>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -347,13 +347,13 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 4: CALL TO ACTION */}
-      <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
-          <div className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible">
-            <div
-              className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20 will-change-transform"
-              style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
-            >
+          <div
+            className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible will-change-transform"
+            style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
+          >
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20">
               <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
               <div className="max-w-2xl text-center lg:text-left relative z-20">
                 <h2 className="reveal delay-100 text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9] break-words">
@@ -379,7 +379,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* SECTION 5: CONTACTS */}
-      <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden">
+      <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden z-20 relative">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
             <div className="reveal-left">
