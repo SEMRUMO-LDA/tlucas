@@ -108,7 +108,7 @@ const MainContent: React.FC = () => {
     animatedElements.forEach((el) => observerRef.current?.observe(el));
 
     const handleCtaParallax = () => {
-      if (window.innerWidth >= 1024 || !ctaRef.current) {
+      if (!ctaRef.current) {
         setCtaOffset(0);
         return;
       }
@@ -349,29 +349,31 @@ const MainContent: React.FC = () => {
       {/* SECTION 4: CALL TO ACTION */}
       <section id="booking-cta" ref={ctaRef} className="py-24 md:py-32 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8">
-          <div
-            className="reveal-scale relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible will-change-transform"
-            style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
-          >
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20">
-              <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
-              <div className="max-w-2xl text-center lg:text-left relative z-20">
-                <h2 className="reveal delay-100 text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9] break-words">
-                  {t('cta_title')} {t('cta_subtitle')}
-                </h2>
-                <p className="reveal delay-200 text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
-                  {t('cta_desc')}
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-6 reveal delay-300 relative z-20">
-                <a
-                  href="#home"
-                  onClick={(e) => scrollToSection(e, '#home')}
-                  className="group relative bg-brand-greenYellow text-brand-darkGreen px-10 md:px-16 py-6 md:py-7 rounded-full font-black text-sm uppercase tracking-[0.3em] transition-all hover:bg-white hover:scale-105 active:scale-95 shadow-2xl whitespace-nowrap"
-                >
-                  {t('cta_btn')}
-                  <div className="absolute inset-0 rounded-full animate-ping bg-brand-greenYellow/20 -z-10 group-hover:hidden"></div>
-                </a>
+          <div className="reveal-scale">
+            <div
+              className="relative rounded-[32px] md:rounded-[64px] bg-brand-darkGreen shadow-2xl group overflow-visible will-change-transform"
+              style={{ transform: ctaOffset ? `translateY(${ctaOffset}px)` : 'none' }}
+            >
+              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14 p-10 md:p-20">
+                <div className="absolute inset-0 bg-brand-caribbeanGreen/10 rounded-[32px] md:rounded-[64px] blur-3xl -z-10 group-hover:opacity-100 opacity-40 transition-opacity duration-1000"></div>
+                <div className="max-w-2xl text-center lg:text-left relative z-20">
+                  <h2 className="reveal delay-100 text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-[0.9] break-words">
+                    {t('cta_title')} {t('cta_subtitle')}
+                  </h2>
+                  <p className="reveal delay-200 text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
+                    {t('cta_desc')}
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-6 reveal delay-300 relative z-20">
+                  <a
+                    href="#home"
+                    onClick={(e) => scrollToSection(e, '#home')}
+                    className="group relative bg-brand-greenYellow text-brand-darkGreen px-10 md:px-16 py-6 md:py-7 rounded-full font-black text-sm uppercase tracking-[0.3em] transition-all hover:bg-white hover:scale-105 active:scale-95 shadow-2xl whitespace-nowrap"
+                  >
+                    {t('cta_btn')}
+                    <div className="absolute inset-0 rounded-full animate-ping bg-brand-greenYellow/20 -z-10 group-hover:hidden"></div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
