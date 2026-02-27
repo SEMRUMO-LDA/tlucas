@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# If the requested file exists (HTML, JS, CSS, images, PHP), serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, route to index.html for SPA
+RewriteRule ^ index.html [L]
