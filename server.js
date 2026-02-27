@@ -27,10 +27,11 @@ app.post('/api/send', async (req, res) => {
         }
 
         // Create transporter
+        const smtpPort = parseInt(process.env.SMTP_PORT || '465');
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: false, // Use STARTTLS
+            port: smtpPort,
+            secure: smtpPort === 465, // true for 465 (TLS), false for 587 (STARTTLS)
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
@@ -41,7 +42,7 @@ app.post('/api/send', async (req, res) => {
         });
 
         const mailOptions = {
-            from: `"t.lucas Transfers" <${process.env.SMTP_USER}>`,
+            from: `"t.lucas Transfers" <${process.env.EMAIL_FROM || 'onboarding@resend.dev'}>`,
             to: process.env.EMAIL_TO,
             replyTo: email,
             subject: `New Quote Request from ${name}`,
@@ -75,7 +76,7 @@ app.post('/api/send', async (req, res) => {
 });
 
 // Handle SPA routing - serve index.html for all other routes
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
