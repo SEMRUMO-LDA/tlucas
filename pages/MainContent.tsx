@@ -70,6 +70,8 @@ const BookingEngine: React.FC = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg"
                 className="h-4"
                 alt="Stripe"
+                width="60"
+                height="25"
               />
             </div>
 
@@ -265,6 +267,8 @@ const MainContent: React.FC = () => {
                       src="/img/tripadvisor.svg"
                       className="h-5 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
                       alt="TripAdvisor"
+                      width="120"
+                      height="20"
                     />
                   </a>
                   <div className="h-4 w-[1px] bg-white/20"></div>
@@ -351,7 +355,7 @@ const MainContent: React.FC = () => {
             <div className="relative reveal-left">
               <div className="aspect-[3/4] rounded-[32px] md:rounded-[60px] overflow-hidden shadow-2xl relative group">
                 <div className="absolute inset-0 bg-brand-darkGreen/20 group-hover:bg-transparent transition-colors duration-700"></div>
-                <img src="/img/how-we-work.jpg" alt="Iconic Algarve Coast, Portugal" loading="lazy" className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img src="/img/how-we-work.jpg" alt="Iconic Algarve Coast, Portugal" loading="lazy" width="1512" height="2016" className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
               </div>
               <div className="reveal-scale delay-400 absolute -bottom-6 md:-bottom-10 lg:-bottom-12 -right-2 md:-right-6 lg:-right-12 bg-brand-greenYellow p-6 md:p-12 rounded-[20px] md:rounded-[40px] shadow-2xl border-4 md:border-8 border-brand-darkGreen z-20 scale-75 md:scale-100">
                 <p className="text-4xl md:text-7xl font-black text-brand-darkGreen leading-none mb-1 md:mb-2 tracking-tighter text-center">30+</p>

@@ -9,6 +9,8 @@ export const Logo: React.FC<{ variant?: 'light' | 'dark'; className?: string }> 
         src={logoUrl}
         alt="t.lucas logo"
         className="h-6 md:h-8 lg:h-9 w-auto object-contain transition-all duration-500"
+        width="1216"
+        height="205"
       />
     </div>
   );

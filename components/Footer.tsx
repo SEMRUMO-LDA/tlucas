@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-16 lg:gap-x-24 mb-20">
           {/* Column 1: Logo & Description (Spans 4/12) */}
           <div className="lg:col-span-4 space-y-8">
-            <img src="/img/t_lucas_tl_white.png" className="h-10 w-auto object-contain" alt="t.lucas" />
+            <img src="/img/t_lucas_tl_white.png" className="h-10 w-auto object-contain" alt="t.lucas" width="237" height="100" />
             <p className="text-gray-400 text-sm leading-relaxed font-medium max-w-sm">
               {t('footer_desc')}
             </p>
@@ -49,6 +49,9 @@ const Footer: React.FC = () => {
                   src="/img/turismo-de-portugal.png"
                   className="h-8 md:h-9 w-auto object-contain"
                   alt="Turismo de Portugal"
+                  width="202"
+                  height="70"
+                  loading="lazy"
                 />
               </a>
 
@@ -58,6 +61,9 @@ const Footer: React.FC = () => {
                   src="/img/visit-algarve-portugal.svg"
                   className="h-7 md:h-8 w-auto object-contain"
                   alt="Algarve Region"
+                  width="120"
+                  height="32"
+                  loading="lazy"
                 />
               </a>
 
@@ -67,6 +73,9 @@ const Footer: React.FC = () => {
                   src="/img/associacao-turismo-do-algarve.svg"
                   className="h-8 md:h-9 w-auto object-contain"
                   alt="Associação Turismo do Algarve"
+                  width="120"
+                  height="36"
+                  loading="lazy"
                 />
               </a>
 
@@ -76,6 +85,9 @@ const Footer: React.FC = () => {
                   src="/img/tripadvisor.svg"
                   className="h-6 md:h-7 w-auto object-contain"
                   alt="TripAdvisor"
+                  width="120"
+                  height="28"
+                  loading="lazy"
                 />
               </a>
             </div>
