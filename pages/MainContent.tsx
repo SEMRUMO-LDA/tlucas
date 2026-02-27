@@ -420,8 +420,8 @@ const MainContent: React.FC = () => {
       {/* SECTION 5: CONTACTS */}
       <section id="contact" className="py-20 md:py-32 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
-            <div className="reveal-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 lg:items-stretch">
+            <div className="reveal-left lg:h-full lg:flex lg:flex-col">
               <h2 className="text-xs font-black text-brand-caribbeanGreen uppercase tracking-[0.5em] mb-6">{t('contact_tag')}</h2>
               <h3 className="text-4xl sm:text-5xl md:text-7xl font-black text-brand-darkGreen tracking-tighter mb-8 uppercase leading-tight break-words">{t('contact_title')}</h3>
               <p className="text-gray-500 text-lg md:text-xl leading-relaxed font-medium max-w-lg mb-12 md:mb-16">
@@ -485,10 +485,10 @@ const MainContent: React.FC = () => {
               </div>
             </div>
 
-            <div className="reveal-right delay-200">
-              <div className="bg-brand-darkGreen p-8 md:p-14 rounded-[32px] md:rounded-[64px] shadow-3xl relative group overflow-visible">
+            <div className="reveal-right delay-200 lg:h-full">
+              <div className="bg-brand-darkGreen p-8 md:p-14 rounded-[32px] md:rounded-[64px] shadow-3xl relative group overflow-visible lg:h-full lg:flex lg:flex-col">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-greenYellow/5 rounded-full blur-[80px] pointer-events-none"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 lg:flex-1 lg:flex lg:flex-col">
                   <div className="flex items-center gap-4 mb-8 md:mb-10">
                     <div className="p-3 bg-brand-greenYellow rounded-2xl text-brand-darkGreen">
                       <ShieldAlert size={24} />
@@ -497,59 +497,63 @@ const MainContent: React.FC = () => {
                       <h4 className="text-white text-3xl font-black uppercase tracking-tight leading-none">{t('contact_form_title')}</h4>
                     </div>
                   </div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/50 mb-10 leading-relaxed">{t('contact_form_subtitle')}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/50 mb-8 leading-relaxed">{t('contact_form_subtitle')}</p>
 
-                  <form className="space-y-6 md:space-y-8" onSubmit={handleQuoteSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_name')}</label>
-                        <input
-                          type="text"
-                          required
-                          value={quoteData.name}
-                          onChange={(e) => setQuoteData({ ...quoteData, name: e.target.value })}
-                          className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
-                          placeholder={t('contact_form_placeholder_name')}
-                        />
+                  <form className="lg:flex-1 lg:flex lg:flex-col justify-between" onSubmit={handleQuoteSubmit}>
+                    <div className="space-y-6 md:space-y-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div className="space-y-2">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_name')}</label>
+                          <input
+                            type="text"
+                            required
+                            value={quoteData.name}
+                            onChange={(e) => setQuoteData({ ...quoteData, name: e.target.value })}
+                            className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
+                            placeholder={t('contact_form_placeholder_name')}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_email')}</label>
+                          <input
+                            type="email"
+                            required
+                            value={quoteData.email}
+                            onChange={(e) => setQuoteData({ ...quoteData, email: e.target.value })}
+                            className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
+                            placeholder={t('contact_form_placeholder_email')}
+                          />
+                        </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_email')}</label>
-                        <input
-                          type="email"
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_help')}</label>
+                        <textarea
+                          rows={4}
                           required
-                          value={quoteData.email}
-                          onChange={(e) => setQuoteData({ ...quoteData, email: e.target.value })}
-                          className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none transition-all hover:bg-white/10"
-                          placeholder={t('contact_form_placeholder_email')}
-                        />
+                          value={quoteData.message}
+                          onChange={(e) => setQuoteData({ ...quoteData, message: e.target.value })}
+                          className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none resize-none transition-all hover:bg-white/10"
+                          placeholder={t('contact_form_placeholder_msg')}
+                        ></textarea>
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-4">{t('contact_form_help')}</label>
-                      <textarea
-                        rows={4}
-                        required
-                        value={quoteData.message}
-                        onChange={(e) => setQuoteData({ ...quoteData, message: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-[16px] md:rounded-[20px] p-5 text-white font-bold focus:ring-2 focus:ring-brand-greenYellow outline-none resize-none transition-all hover:bg-white/10"
-                        placeholder={t('contact_form_placeholder_msg')}
-                      ></textarea>
+                    <div className="mt-8 lg:mt-0">
+                      <button
+                        type="submit"
+                        disabled={isSending}
+                        className={`group w-full py-5 md:py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center gap-4 transition-all shadow-xl active:scale-95 ${isQuoteSubmitted
+                          ? 'bg-brand-caribbeanGreen text-white'
+                          : isSending
+                            ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                            : 'bg-brand-greenYellow text-brand-darkGreen hover:bg-white'
+                          }`}
+                      >
+                        {isQuoteSubmitted ? 'THANK YOU!' : isSending ? 'SENDING...' : t('contact_form_btn')}
+                        {!isQuoteSubmitted && !isSending && <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                        {isQuoteSubmitted && <Check size={16} />}
+                        {isSending && <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>}
+                      </button>
                     </div>
-                    <button
-                      type="submit"
-                      disabled={isSending}
-                      className={`group w-full py-5 md:py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center gap-4 transition-all shadow-xl active:scale-95 ${isQuoteSubmitted
-                        ? 'bg-brand-caribbeanGreen text-white'
-                        : isSending
-                          ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                          : 'bg-brand-greenYellow text-brand-darkGreen hover:bg-white'
-                        }`}
-                    >
-                      {isQuoteSubmitted ? 'THANK YOU!' : isSending ? 'SENDING...' : t('contact_form_btn')}
-                      {!isQuoteSubmitted && !isSending && <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-                      {isQuoteSubmitted && <Check size={16} />}
-                      {isSending && <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>}
-                    </button>
                   </form>
                 </div>
               </div>
