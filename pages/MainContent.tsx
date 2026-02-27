@@ -431,11 +431,11 @@ const MainContent: React.FC = () => {
               <div
                 ref={supportScrollRef}
                 onScroll={() => handleScroll(supportScrollRef, setSupportPercent)}
-                className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-10 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0 items-stretch"
+                className="flex md:flex-col overflow-x-auto md:overflow-x-visible no-scrollbar gap-6 md:gap-3 snap-x snap-mandatory py-12 -my-12 -mx-6 px-6 md:mx-0 md:px-0 items-stretch"
               >
                 {contactPoints.map((item, idx) => {
                   const Content = (
-                    <div className="shrink-0 w-[82vw] md:w-full snap-center flex gap-4 md:gap-8 group items-center bg-white md:bg-transparent p-5 md:p-10 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300 h-full">
+                    <div className="shrink-0 w-[82vw] md:w-full snap-center flex gap-4 md:gap-6 group items-center bg-white md:bg-transparent p-5 md:p-4 rounded-[32px] md:rounded-none border border-gray-100 md:border-none shadow-sm md:shadow-none transition-all duration-300 h-full">
                       <div className="w-14 h-14 md:w-20 md:h-20 bg-brand-softGreen text-brand-caribbeanGreen rounded-[24px] flex items-center justify-center shadow-md shrink-0 group-hover:bg-brand-darkGreen group-hover:text-brand-greenYellow transition-all duration-500">
                         {item.icon}
                       </div>

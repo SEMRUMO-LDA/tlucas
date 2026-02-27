@@ -69,7 +69,7 @@ const Header: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className={`group relative text-[10px] font-black uppercase tracking-[0.15em] transition-colors whitespace-nowrap overflow-hidden ${isHeaderSolid ? 'text-brand-darkGreen' : 'text-white/80'
+                  className={`group relative text-xs font-black uppercase tracking-[0.15em] transition-colors whitespace-nowrap overflow-hidden ${isHeaderSolid ? 'text-brand-darkGreen' : 'text-white/80'
                     }`}
                 >
                   <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{link.name}</span>
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
             <div className="flex items-center gap-6">
               <button
                 onClick={toggleLanguage}
-                className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors ${isHeaderSolid ? 'text-brand-darkGreen hover:text-brand-caribbeanGreen' : 'text-white/80 hover:text-brand-greenYellow'}`}
+                className={`flex items-center gap-2 text-xs font-black uppercase tracking-widest transition-colors ${isHeaderSolid ? 'text-brand-darkGreen hover:text-brand-caribbeanGreen' : 'text-white/80 hover:text-brand-greenYellow'}`}
               >
                 <Globe size={14} />
                 {lang === 'en' ? 'PT' : 'EN'}
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                 <a
                   href="#home"
                   onClick={(e) => scrollToSection(e, '#home')}
-                  className="group px-8 py-3.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center transition-all shadow-xl whitespace-nowrap bg-brand-darkGreen text-brand-greenYellow hover:bg-brand-greenYellow hover:text-brand-darkGreen active:scale-95"
+                  className="group px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-widest flex items-center transition-all shadow-xl whitespace-nowrap bg-brand-darkGreen text-brand-greenYellow hover:bg-brand-greenYellow hover:text-brand-darkGreen active:scale-95"
                 >
                   <ArrowRight size={14} className="mr-2" />
                   {t('cta_btn')}
