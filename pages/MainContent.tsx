@@ -198,15 +198,28 @@ const MainContent: React.FC = () => {
     setIsSending(true);
 
     try {
-      const response = await fetch("/api/send", {
+      const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
+          "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: quoteData.name,
-          email: quoteData.email,
-          message: quoteData.message,
+          from: `t.lucas Transfers <${process.env.EMAIL_FROM || 'onboarding@resend.dev'}>`,
+          to: [process.env.EMAIL_TO || 'info@tlucas.pt'],
+          reply_to: quoteData.email,
+          subject: `New Quote Request from ${quoteData.name}`,
+          html: `
+            <div style="font-family: sans-serif; padding: 20px; color: #333;">
+              <h2 style="color: #00221B;">New Quote Request</h2>
+              <p><strong>Lead Explorer:</strong> ${quoteData.name}</p>
+              <p><strong>Contact Email:</strong> ${quoteData.email}</p>
+              <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 4px solid #00C692;">
+                <h3 style="margin-top: 0;">Trip Details:</h3>
+                <p style="white-space: pre-wrap;">${quoteData.message}</p>
+              </div>
+            </div>
+          `,
         })
       });
 
@@ -216,7 +229,7 @@ const MainContent: React.FC = () => {
         setTimeout(() => setIsQuoteSubmitted(false), 5000);
       } else {
         const errorData = await response.json();
-        alert(`Error: ${errorData.error || "Something went wrong. Please try again."}`);
+        alert(`Error: ${errorData.message || "Something went wrong. Please try again."}`);
       }
     } catch (error) {
       alert("Error sending request. Please check your connection.");
