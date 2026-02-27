@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Route /api/send to the PHP handler
+RewriteRule ^api/send$ api/send.php [L,QSA]
+
 # If the requested file exists (HTML, JS, CSS, images, PHP), serve it directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

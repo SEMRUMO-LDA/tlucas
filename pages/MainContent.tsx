@@ -198,7 +198,7 @@ const MainContent: React.FC = () => {
     setIsSending(true);
 
     try {
-      const response = await fetch("/api/send.php", {
+      const response = await fetch("/api/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
