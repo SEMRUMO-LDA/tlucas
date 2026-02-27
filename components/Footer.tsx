@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { Logo, useTranslation } from '../constants';
 import PrivacyModal from './PrivacyModal';
 

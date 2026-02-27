@@ -1,16 +1,5 @@
 import React, { createContext, useContext } from 'react';
 
-export const COLORS = {
-  greenYellow: '#DBFF66',
-  caribbeanGreen: '#00C692',
-  darkGreen: '#00221B',
-  softGreen: '#FBFFE1',
-  darkBlueGreen: '#0A0A0A',
-  prussianBlue: '#000549',
-  smokyBlack: '#131414',
-  antiFlashWhite: '#F0F2F0',
-};
-
 export const Logo: React.FC<{ variant?: 'light' | 'dark'; className?: string }> = ({ variant = 'dark', className = "" }) => {
   const logoUrl = variant === 'light' ? '/img/t_lucas_logo_white.png' : '/img/t_lucas_logo_dark.png';
 
