@@ -5,178 +5,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>t.lucas | Premium Algarve Transfers</title>
+  <meta name="description"
+    content="Airport transfers, private tours, and hiking trail support in the Algarve and Costa Vicentina. 30+ years of experience. Book now with t.lucas Transfers." />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="512x512" href="/img/t_lucas_favicon.png" />
   <link rel="apple-touch-icon" href="/img/t_lucas_favicon.png" />
+
+  <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://transfersgo.pt">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- Google Fonts — non-render-blocking -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              greenYellow: '#DBFF66',
-              caribbeanGreen: '#00C692',
-              darkGreen: '#00221B',
-              softGreen: '#FBFFE1',
-              darkBlueGreen: '#0A0A0A',
-              prussianBlue: '#000549',
-              smokyBlack: '#131414',
-              antiFlashWhite: '#F0F2F0',
-            }
-          },
-          fontFamily: {
-            sans: ['DM Sans', 'sans-serif'],
-          },
-          animation: {
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html,
-    body {
-      background-color: #F0F2F0;
-      font-family: 'DM Sans', sans-serif;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden !important;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-
-    /* Global Responsive Image Safeguard */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Premium Scroll Progress */
-    #scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: #DBFF66;
-      z-index: 9999;
-      transition: width 0.1s ease;
-    }
-
-    /* Custom Reveal Animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-60px);
-      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(60px);
-      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .is-visible {
-      opacity: 1 !important;
-      transform: translate(0) scale(1) !important;
-    }
-
-    .delay-100 {
-      transition-delay: 100ms;
-    }
-
-    .delay-200 {
-      transition-delay: 200ms;
-    }
-
-    .delay-300 {
-      transition-delay: 300ms;
-    }
-
-    .delay-400 {
-      transition-delay: 400ms;
-    }
-
-    .delay-500 {
-      transition-delay: 500ms;
-    }
-
-    /* Grain Texture Overlay */
-    .bg-grain {
-      position: relative;
-    }
-
-    .bg-grain::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-      opacity: 0.03;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
-
-    ::selection {
-      background: #DBFF66;
-      color: #00221B;
-    }
-
-    .logo-gray-filter {
-      filter: brightness(0) invert(72%) sepia(8%) saturate(378%) hue-rotate(181deg) brightness(89%) contrast(85%);
-    }
-
-    .hover-lime-filter:hover {
-      filter: brightness(0) invert(91%) sepia(34%) saturate(763%) hue-rotate(18deg) brightness(105%) contrast(101%) !important;
-      opacity: 1 !important;
-    }
-  </style>
-
-
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/assets/index-BeWXBZFl.js"></script>
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+  </noscript>
+  <script type="module" crossorigin src="/assets/index-fQAcIEQn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ClytkrIB.css">
 </head>
 
 <body>
@@ -188,7 +42,7 @@
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
       document.getElementById('scroll-progress').style.width = scrolled + "%";
-    });
+    }, { passive: true });
   </script>
 </body>
 
